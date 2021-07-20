@@ -57,9 +57,7 @@ export default function Products() {
       setTimeout(() => {
         setStatus(false);
       }, 3000);
-    } else {
-      alert("Preencha todos os campos corretamente");
-    }
+    } 
   }
 
   console.log(productData);
