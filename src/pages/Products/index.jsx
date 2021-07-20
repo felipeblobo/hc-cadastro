@@ -57,10 +57,13 @@ export default function Products() {
       setTimeout(() => {
         setStatus(false);
       }, 3000);
-    } 
+    } else {
+      alert("Preencha todos os campos corretamente");
+    }
   }
 
-  console.log(productData);
+  console.log(productData.category)
+
   return (
     <Container>
       <Title>Gestão de Produtos</Title>
@@ -69,8 +72,8 @@ export default function Products() {
       <Form onSubmit={setDataToStorage}>
         <DataForm>
           <Label htmlFor="category">Categoria</Label>
-          <Select value={productData.categoria} onChange={handleChange}>
-            <option selected disabled value="">
+          <Select id='category' value={productData.category} onChange={handleChange}>
+            <option disabled value='' defaultValue>
               Selecione a Categoria
             </option>
             <option value="eletrodomestico">Eletrodomésticos</option>
