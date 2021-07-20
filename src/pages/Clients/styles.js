@@ -1,6 +1,5 @@
 import NumberFormat from "react-number-format";
 import styled from "styled-components";
-import Button from "../../components/Button";
 import { StyledButton } from "../../components/Button/styles";
 
 export const Form = styled.form`

@@ -11,7 +11,7 @@ import {
   Label,
   ModifiedButton,
 } from "./styles";
-import NumberFormat from "react-number-format";
+
 
 export default function Clients() {
   const [status, setStatus] = useState(false);
