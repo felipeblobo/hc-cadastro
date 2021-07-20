@@ -7,7 +7,7 @@ export const Container = styled.div`
   width: 100vw;
   flex-direction: column;
   align-items: center;
-  background-color: #dddddd;
+  
 `;
 
 export const Title = styled.h1`
@@ -18,4 +18,5 @@ export const Description = styled.p`
   font-size: 1.2rem;
   width: 30rem;
   margin: 2rem;
+  line-height: 1.8rem;
 `;

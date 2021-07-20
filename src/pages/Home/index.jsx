@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
-import Button from '../../Button';
+import Button from '../../components/Button';
 import { Container, Description, Title } from './styles';
 
 export default function Home() {
