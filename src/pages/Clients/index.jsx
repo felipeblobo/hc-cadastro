@@ -65,7 +65,7 @@ export default function Clients() {
     <Container>
       <Title>Gestão de Clientes</Title>
       <Description>Secção para adição de clientes no LocalStorage.</Description>
-      {status && <Success>Email cadastrado com sucesso</Success>}
+      {status && <Success>Cliente cadastrado com sucesso</Success>}
       <Form onSubmit={setDataToStorage}>
         <DataForm>
           <Label htmlFor="name">Nome</Label>
