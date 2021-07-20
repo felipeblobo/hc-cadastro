@@ -1,7 +1,11 @@
 import styled from "styled-components";
+import Button from "../../components/Button";
+import { StyledButton } from "../../components/Button/styles";
 
 export const Form = styled.form`
   width: 35rem;
+  display: flex;
+  flex-direction: column;
 `
 export const DataForm = styled.div`
   display: flex;
@@ -26,3 +30,23 @@ export const Input = styled.input`
     outline: none;
   }
 `;
+
+export const ButtonContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+
+`
+
+export const ModifiedButton = styled(StyledButton)`
+  width: 10rem;
+  font-size: 1rem;
+  margin: 1rem 0;
+
+  &:first-child {
+    border: 1px solid #117BB0;
+    color: #117BB0;
+    transition: 1s;
+  }
+
+`;
+
