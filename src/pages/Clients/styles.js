@@ -3,10 +3,13 @@ import styled from "styled-components";
 import { StyledButton } from "../../components/Button/styles";
 
 export const Form = styled.form`
-  width: 35rem;
+  max-width: 35rem;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  padding: 0 1rem;
 `
+
 export const DataForm = styled.div`
   display: flex;
   flex-direction: column;
