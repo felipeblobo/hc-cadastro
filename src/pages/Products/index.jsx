@@ -1,18 +1,25 @@
-import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom';
-import { ButtonContainer, DataForm, Form, Input, Label, ModifiedButton } from '../Clients/styles';
-import { Container, Description, Title } from '../Home/styles';
-import { Select, TextArea } from './styles';
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
+import {
+  ButtonContainer,
+  DataForm,
+  Form,
+  FormatedInput,
+  Input,
+  Label,
+  ModifiedButton,
+} from "../Clients/styles";
+import { Container, Description, Title } from "../Home/styles";
+import { Select, Success, TextArea } from "./styles";
 
 export default function Products() {
- 
   const [status, setStatus] = useState(false);
   const [productData, setproductData] = useState({
     category: "",
     type: "",
     description: "",
     price: "",
-    stock:"",
+    stock: "",
   });
 
   function handleChange(e) {
@@ -23,44 +30,51 @@ export default function Products() {
       ...productData,
       [field]: value,
     });
-
   }
 
   function setDataToStorage(e) {
     e.preventDefault();
-    if (productData.name !== "" && productData.email !== "" && productData.cpf !=="" && productData.phone !==""){
-      localStorage.setItem("productData", JSON.stringify(productData));
+    if (
+      productData.category !== "" &&
+      productData.type !== "" &&
+      productData.description !== "" &&
+      productData.price !== "" &&
+      productData.stock !== ""
+    ) {
+      localStorage.setItem(
+        `productData${productData.type}`,
+        JSON.stringify(productData)
+      );
       setproductData({
         category: "",
         type: "",
         description: "",
         price: "",
-        stock:"",
+        stock: "",
       });
 
       setStatus(true);
       setTimeout(() => {
         setStatus(false);
       }, 3000);
-
-    } 
-
-    else {
-      alert('Preencha todos os campos corretamente')
+    } else {
+      alert("Preencha todos os campos corretamente");
     }
   }
-  
 
-  console.log(productData)
+  console.log(productData);
   return (
     <Container>
       <Title>Gestão de Produtos</Title>
       <Description>Secção para adição de produtos no LocalStorage.</Description>
+      {status && <Success>Produto cadastrado com sucesso!</Success>}
       <Form onSubmit={setDataToStorage}>
         <DataForm>
           <Label htmlFor="category">Categoria</Label>
           <Select value={productData.categoria} onChange={handleChange}>
-            <option selected disabled value="">Selecione a Categoria</option>
+            <option selected disabled value="">
+              Selecione a Categoria
+            </option>
             <option value="eletrodomestico">Eletrodomésticos</option>
             <option value="móveis">Movéis</option>
             <option value="celulares">Celulares</option>
@@ -69,27 +83,65 @@ export default function Products() {
         </DataForm>
         <DataForm>
           <Label htmlFor="type">Tipo</Label>
-          <Input type="text" id='type' value={productData.type} onChange={handleChange} />
+          <Input
+            placeholder="Tipo do produto"
+            type="text"
+            id="type"
+            value={productData.type}
+            onChange={handleChange}
+            required
+          />
         </DataForm>
         <DataForm>
           <Label htmlFor="description">Descrição</Label>
-          <TextArea type="text" id='description' value={productData.description} onChange={handleChange} />
+          <TextArea
+            placeholder="Descrição com características e funcionalidades"
+            type="text"
+            id="description"
+            value={productData.description}
+            onChange={handleChange}
+            required
+          />
         </DataForm>
         <DataForm>
           <Label htmlFor="price">Preço</Label>
-          <Input type="number" id='price' value={productData.price} onChange={handleChange} />
+          <FormatedInput
+            thousandSeparator={true} 
+            prefix={'R$ '}
+            placeholder="Digite somente os números"
+            id="price"
+            value={productData.price}
+            onChange={handleChange}
+            required
+          />
         </DataForm>
         <DataForm>
           <Label htmlFor="stock">Estoque</Label>
-          <Input type="number" id='stock' value={productData.stock} onChange={handleChange} />
+          <Input
+            placeholder="Estoque em números inteiros"
+            type="number"
+            id="stock"
+            value={productData.stock}
+            onChange={handleChange}
+            required
+          />
         </DataForm>
-        {status && <p>Produto cadastrado com sucesso!</p>}
+
         <ButtonContainer>
-          <NavLink to='/'><ModifiedButton type='submit' backColor="transparent">Voltar</ModifiedButton></NavLink>
-          <ModifiedButton type='submit' backColor="#117BB0" style={{width: "12rem"}}>Adicionar Produto</ModifiedButton>
+          <NavLink to="/">
+            <ModifiedButton type="submit" backColor="transparent">
+              Voltar
+            </ModifiedButton>
+          </NavLink>
+          <ModifiedButton
+            type="submit"
+            backColor="#FD5A57"
+            style={{ width: "12rem" }}
+          >
+            Adicionar Produto
+          </ModifiedButton>
         </ButtonContainer>
-       
       </Form>
     </Container>
-  )
+  );
 }

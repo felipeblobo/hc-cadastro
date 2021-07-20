@@ -27,3 +27,10 @@ export const TextArea = styled.textarea`
     outline: none;
   }
 `;
+
+export const Success = styled.h3`
+    margin: 1rem 0;
+    background-color: #18ca8b;
+    padding: .7rem;
+    border-radius: 10px;
+`

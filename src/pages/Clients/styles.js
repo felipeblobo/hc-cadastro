@@ -1,3 +1,4 @@
+import NumberFormat from "react-number-format";
 import styled from "styled-components";
 import Button from "../../components/Button";
 import { StyledButton } from "../../components/Button/styles";
@@ -30,6 +31,21 @@ export const Input = styled.input`
     outline: none;
   }
 `;
+
+export const FormatedInput = styled(NumberFormat)`
+    width: 100%;
+    height: 2.5rem;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1.2rem;
+    border-radius: 1rem;
+    border: 1px solid #055f89;
+    padding: .5rem 1rem;
+
+    &:focus {
+      outline: none;
+    }
+`;
+
 
 export const ButtonContainer = styled.div`
     display: flex;
